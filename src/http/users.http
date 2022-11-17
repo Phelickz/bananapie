@@ -1,0 +1,14 @@
+# baseURL
+@baseURL = http://localhost:3000
+
+
+
+###
+# Find User By Email
+GET {{ baseURL }}/users/
+
+Query: email
+
+{
+    "_csrf": "CSRF TOKEN"
+}

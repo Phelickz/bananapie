@@ -1,0 +1,47 @@
+tags:
+- name: users
+  description: users API
+
+paths:
+# [GET] users
+  /users:
+    get:
+      tags:
+      - users
+      summary: Find User By Email
+      query:
+      - name: email
+        in: path
+        description: User email
+        required: true
+        type: string
+      body:
+      - name: _csrf
+        required: true
+        type: string
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# definitions
+definitions:
+  users:
+    type: object
+    required:
+        - email
+        - password
+    properties:
+      email:
+        type: string
+        description: user Email
+      password:
+        type: string
+        description: user Password
+
+schemes:
+ - https
+ - http
